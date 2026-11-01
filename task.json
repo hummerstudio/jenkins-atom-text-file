@@ -1,0 +1,94 @@
+{
+  "atomCode": "text-file",
+  "name": "Create/Update text file",
+  "version": "1.0.0",
+  "description": "创建或更新一个文本文件：insertAtStart / appendToEnd / overWrite，写完回读比对。",
+  "execution": {
+    "packagePath": "text-file.jar",
+    "language": "java",
+    "target": "$atom_java_path -cp text-file.jar com.jenkinschina.atom.sdk.AtomRunner"
+  },
+  "input": {
+    "option": {
+      "label": "写入方式",
+      "type": "selector",
+      "default": "appendToEnd",
+      "options": [
+        "insertAtStart",
+        "appendToEnd",
+        "overWrite"
+      ]
+    },
+    "path": {
+      "label": "文件路径（可用 ${VAR}）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "content": {
+      "label": "写入内容（可用 ${VAR}，\\n 换行）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "useWorkspace": {
+      "label": "路径相对 workspace",
+      "type": "checkbox",
+      "default": "true"
+    },
+    "lineSeparator": {
+      "label": "换行符",
+      "type": "selector",
+      "default": "platform",
+      "options": [
+        "platform",
+        "lf",
+        "crlf"
+      ]
+    },
+    "verifyAfterWrite": {
+      "label": "写完回读比对",
+      "type": "checkbox",
+      "default": "true"
+    },
+    "maxFileSizeBytes": {
+      "label": "已有文件大小上限（字节）",
+      "type": "vuex-input",
+      "default": "16777216"
+    }
+  },
+  "output": {
+    "path": {
+      "type": "string",
+      "description": "写入的绝对路径"
+    },
+    "option": {
+      "type": "string",
+      "description": "实际使用的写入方式"
+    },
+    "created": {
+      "type": "string",
+      "description": "是否新建"
+    },
+    "bytes": {
+      "type": "string",
+      "description": "写入字节数"
+    },
+    "sha256": {
+      "type": "string",
+      "description": "写入内容的 sha256"
+    },
+    "lineSeparator": {
+      "type": "string",
+      "description": "实际使用的换行符"
+    },
+    "verified": {
+      "type": "string",
+      "description": "是否回读通过"
+    }
+  },
+  "x-jenkins": {
+    "protocol": "jenkins-1",
+    "requires": {
+      "runner": ">=0.4.0"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Create/Update text file",
+  "summary": "text-file-operations 的移植：insertAtStart / appendToEnd / overWrite 三种写法，路径与内容支持 ${VAR}，写完逐字节回读。",
+  "author": "hummerstudio",
+  "license": "MIT",
+  "tags": [
+    "official-port",
+    "text-file-operations"
+  ],
+  "homepage": "https://github.com/hummerstudio/jenkins-atom-text-file"
+}
