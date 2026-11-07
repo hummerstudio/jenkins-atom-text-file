@@ -53,8 +53,7 @@ Outputs: `path` (absolute), `option`, `created`, `bytes`, `sha256`, `lineSeparat
 ## Build and test
 
 ```bash
-./build.sh
-./tools/smoke.sh          # build + the three options, both boundaries, crlf, two refusals
+mvn verify                # builds the jar, then the atom's own tests: the three options, both boundaries, crlf, two refusals
 python3 tools/check.py    # 34 behaviour checks, every expectation recomputed from its own inputs
 python3 tools/mutations.py # 24 planted bugs, each must turn a named check red
 ```
