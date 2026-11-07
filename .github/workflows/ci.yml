@@ -37,4 +37,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: text-file-atom
-          path: atom/dist/text-file/
+          path: atom/target/dist/text-file/
